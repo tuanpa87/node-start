@@ -35,9 +35,19 @@ getDogPic = async () => {
 
     throw err;
   }
+
+  return '2: READY 🐶';
 };
 
+console.log('1: Will get dog pics!');
 getDogPic()
+  .then((x) => {
+    console.log(x);
+    console.log('3: Done getting dog pics!');
+  })
+  .catch((err) => {
+    console.log('ERROR 💥');
+  });
 
 /*
 readFilePro(`${__dirname}/dog.txt`)
