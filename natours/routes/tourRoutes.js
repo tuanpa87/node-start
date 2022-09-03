@@ -1,5 +1,5 @@
 const express = require('express');
-const tourControllers = require('./../controllers/tourControllers')
+const tourControllers = require('./../controllers/tourControllers');
 
 const router = express.Router();
 
@@ -9,6 +9,10 @@ const router = express.Router();
 // Check if body contains the name and price property
 // if not, send back 400 (bad request)
 // Add it to the post handler stack
+
+router
+  .route('/top-5-cheap')
+  .get(tourControllers.aliasTopTours, tourControllers.getAllTours);
 
 router
   .route('/')
