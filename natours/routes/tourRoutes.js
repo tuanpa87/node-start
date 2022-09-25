@@ -1,9 +1,9 @@
 const express = require('express');
-const tourControllers = require('./../controllers/tourControllers');
+const tourController = require('../controllers/tourController');
 
 const router = express.Router();
 
-// router.param('id', tourControllers.checkID)
+// router.param('id', tourController.checkID)
 
 // Create a checkBody middleware
 // Check if body contains the name and price property
@@ -12,20 +12,20 @@ const router = express.Router();
 
 router
   .route('/top-5-cheap')
-  .get(tourControllers.aliasTopTours, tourControllers.getAllTours);
+  .get(tourController.aliasTopTours, tourController.getAllTours);
 
-router.route('/tour-stats').get(tourControllers.getTourStats);
-router.route('/monthly-plan/:year').get(tourControllers.getMonthlyPlan);
+router.route('/tour-stats').get(tourController.getTourStats);
+router.route('/monthly-plan/:year').get(tourController.getMonthlyPlan);
 
 router
   .route('/')
-  .get(tourControllers.getAllTours)
-  .post(tourControllers.createTour);
+  .get(tourController.getAllTours)
+  .post(tourController.createTour);
 
 router
   .route('/:id')
-  .get(tourControllers.getTour)
-  .patch(tourControllers.updateTour)
-  .delete(tourControllers.deleteTour);
+  .get(tourController.getTour)
+  .patch(tourController.updateTour)
+  .delete(tourController.deleteTour);
 
 module.exports = router;
